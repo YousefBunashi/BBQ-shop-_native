@@ -6,10 +6,14 @@ import butcheryStore from "./stores/ButcheryStore";
 
 import { Content, List, Spinner } from "native-base";
 
-const ButcheryList = () => {
+const ButcheryList = ({ navigation }) => {
   if (butcheryStore.loading) return <Spinner />;
   const butcheryList = butcheryStore.butcheries.map((butchery) => (
-    <ButcheryItem butchery={butchery} key={butchery.id} />
+    <ButcheryItem
+      butchery={butchery}
+      key={butchery.id}
+      navigation={navigation}
+    />
   ));
 
   return (

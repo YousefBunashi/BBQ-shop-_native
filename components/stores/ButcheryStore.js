@@ -1,4 +1,4 @@
-import { action, makeObservable, observable } from "mobx";
+import { makeAutoObservable } from "mobx";
 
 import instance from "./instance";
 
@@ -6,12 +6,9 @@ class ButcheryStore {
   butcheries = [];
   loading = true;
   constructor() {
-    makeObservable(this, {
-      butcheries: observable,
-      loading: observable,
-      fetchButcheries: action,
-    });
+    makeAutoObservable(this);
   }
+
   fetchButcheries = async () => {
     try {
       const response = await instance.get("/butcheries");

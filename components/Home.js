@@ -1,3 +1,4 @@
+import { observer } from "mobx-react";
 import React from "react";
 
 // Styling
@@ -11,12 +12,12 @@ import {
   ButtonStyled,
 } from "../ styles";
 
-const Home = () => {
+const Home = ({ navigation }) => {
   return (
     <HomeBackground
       source={{
         uri:
-          "https://annabanana.co/wp-content/uploads/2020/03/Chocolate-Chip-Cookies-22.jpg",
+          "https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/grilled-beef-steak-and-fire-martinh70.jpg",
       }}
     >
       <OverLayContainer>
@@ -24,10 +25,8 @@ const Home = () => {
           <Title>More Than a Meat</Title>
         </TopStyling>
         <BottomStyling>
-          <ButtonStyled
-            onPress={() => alert("Take me to the list of Butcharies")}
-          >
-            {/* <Text> Click here to skip</Text> */}
+          <ButtonStyled onPress={() => navigation.navigate("Butcheries")}>
+            Click here to skip
           </ButtonStyled>
         </BottomStyling>
       </OverLayContainer>
@@ -35,4 +34,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default observer(Home);

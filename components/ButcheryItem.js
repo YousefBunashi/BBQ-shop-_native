@@ -3,13 +3,11 @@ import React from "react";
 import { ButcheryItemStyled } from "../ styles";
 import { Image } from "react-native";
 
-const ButcheryItem = ({ butchery }) => {
+const ButcheryItem = ({ butchery, navigation }) => {
   return (
-    <ListItem>
-      <Image
-        style={{ width: 100, height: 100 }}
-        source={{ uri: butchery.image }}
-      />
+    <ListItem
+      onPress={() => navigation.navigate("Bbqs", { butchery: butchery })}
+    >
       <ButcheryItemStyled>{butchery.name}</ButcheryItemStyled>
     </ListItem>
   );
