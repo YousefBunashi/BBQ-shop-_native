@@ -26,10 +26,12 @@ class CartStore {
     this.items = this.items.filter((item) => item.bbqId !== itemId);
     await AsyncStorage.setItem("myCart", JSON.stringify(this.items));
   };
-  checkout = () => {
+  checkout = async () => {
     this.items = [];
     alert("حتدفع يعني حتدفع");
+    await AsyncStorage.removeItem("myCart");
   };
+
   constructor() {
     makeAutoObservable(this);
   }

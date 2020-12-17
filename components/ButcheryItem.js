@@ -8,6 +8,10 @@ const ButcheryItem = ({ butchery, navigation }) => {
     <ListItem
       onPress={() => navigation.navigate("Bbqs", { butchery: butchery })}
     >
+      <Image
+        style={{ width: 100, height: 100 }}
+        source={{ uri: butchery.image }}
+      />
       <ButcheryItemStyled>{butchery.name}</ButcheryItemStyled>
     </ListItem>
   );
