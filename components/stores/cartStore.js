@@ -27,9 +27,14 @@ class CartStore {
     await AsyncStorage.setItem("myCart", JSON.stringify(this.items));
   };
   checkout = async () => {
-    this.items = [];
-    alert("حتدفع يعني حتدفع");
-    await AsyncStorage.removeItem("myCart");
+    try {
+      const res = await instance.post("/checkout", this.items);
+      console.log("CartStore -> checkout -> res", res.data);
+      this.items = [];
+      alert("You have successfully checked out.");
+    } catch (error) {
+      console.log("CartStore -> checkout -> error", error);
+    }
   };
 
   constructor() {

@@ -11,7 +11,7 @@ const { Navigator, Screen } = createStackNavigator();
 const RootNavigator = () => {
   return (
     <Navigator
-      initialRouteName="Signup"
+      initialRouteName="Home"
       screenOptions={{
         headerTintColor: "white",
         headerStyle: {

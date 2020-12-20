@@ -7,7 +7,7 @@ import {
   ButcheryDetailWrapper,
 } from "../ styles";
 import butcheryStore from "./stores/ButcheryStore";
-import { Spinner } from "native-base";
+import { Spinner, Text } from "native-base";
 import BbqList from "./BbqList";
 import bbqsStore from "./stores/bbqStore";
 
@@ -24,8 +24,10 @@ const ButcheryDetail = () => {
       <ButcheryDetailWrapper>
         <ButcheryDetailImage source={{ uri: butchery.image }} />
         <ButcheryDetailTitle> {butchery.name}</ButcheryDetailTitle>
+        <Text>testtet</Text>
+        <BbqList bbqs={bbqsFromBbqStore} />
+        <Text>testtet</Text>
       </ButcheryDetailWrapper>
-      <BbqList bbqs={bbqsFromBbqStore} />
     </>
   );
 };
